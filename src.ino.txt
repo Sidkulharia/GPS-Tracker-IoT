@@ -1,0 +1,34 @@
+	#define BLYNK_PRINT Serial
+#include <SPI.h>
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+char auth[] = "d5392cf3628a42769db2291962bcebf1";
+// Your WiFi credentials.
+// Set password to "" for open networks.
+char ssid[] = "Hulk123";
+char pass[] = "1234567890";
+WidgetMap myMap(V1);
+void setup()
+{
+  // Debug console
+  Serial.begin(9600);
+
+  Blynk.begin(auth, ssid, pass);
+
+ 
+  myMap.clear();
+
+  int index = 1;
+  float lat = 51.5074;
+  float lon = 0.1278;
+  myMap.location(index, lat, lon, "value");
+}
+
+void loop()
+{
+  Blynk.run();
+}
+
+	
+	
+                                            
